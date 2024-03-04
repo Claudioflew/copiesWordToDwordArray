@@ -15,19 +15,19 @@ ExitProcess PROTO, dwExitCode: dword
 
 .data
 origin word 11h, 22h, 33h, 44h, 55h
-target dword 5 DUP(?)				; Prepare dword empty array
+target dword 5 DUP(?)			; Prepare dword empty array
 
 .code
 main proc
-	mov esi, 0						; Indexing operand for the original array
-	mov edi, 0						; Indexing operand for the target array
-	mov ecx, lengthof origin		; Counter operand
+	mov esi, 0			; Indexing operand for the original array
+	mov edi, 0			; Indexing operand for the target array
+	mov ecx, lengthof origin	; Counter operand
 
 L1:
-	movzx eax, origin[esi]			; Zero extension is necessary (small->big)
+	movzx eax, origin[esi]		; Zero extension is necessary (small->big)
 	mov target[edi], eax
 
-	add esi, type origin			; Increment byte is different
+	add esi, type origin		; Increment byte is different
 	add edi, type target
 
 	loop L1

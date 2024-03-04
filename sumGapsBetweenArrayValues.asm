@@ -18,18 +18,18 @@ array dword 0, 2, 5, 9, 10
 
 .code
 main proc
-	mov esi, type array			; Index pointing to the second element
+	mov esi, type array		; Index pointing to the second element
 	mov ecx, lengthof array		; Counter operand
-	dec ecx						; Want to iterate from the second element
-	mov eax, array				; Assign the first element (eax will be prev)
-	mov ebx, 0					; ebx = sum
+	dec ecx				; Want to iterate from the second element
+	mov eax, array			; Assign the first element (eax will be prev)
+	mov ebx, 0			; ebx = sum
 
 L1:
-	add ebx, array[esi]			; Anyway add the current value to sum
-	sub ebx, eax				; Subtract the previous element from sum
+	add ebx, array[esi]		; Anyway add the current value to sum
+	sub ebx, eax			; Subtract the previous element from sum
 
-	mov eax, ebx				; Update prev value
-	add esi, type array			; Increment the index
+	mov eax, ebx			; Update prev value
+	add esi, type array		; Increment the index
 
 	loop L1
 
